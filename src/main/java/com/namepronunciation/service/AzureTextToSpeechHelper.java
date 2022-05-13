@@ -4,7 +4,6 @@ import com.microsoft.cognitiveservices.speech.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.net.URI;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -22,9 +21,8 @@ public class AzureTextToSpeechHelper {
 
         String serviceRegion = "eastus";
         try {
-           // SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
-SpeechConfig config = SpeechConfig.fromEndpoint(new URI("https://eastus.api.cognitive.microsoft.com/sts/v1.0/issuetoken"),speechSubscriptionKey);
-            config.setSpeechSynthesisVoiceName("en-US-AriaNeural");
+            SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
+config.setSpeechSynthesisVoiceName("en-US-AriaNeural");
             SpeechSynthesizer synth = new SpeechSynthesizer(config);
 
             assert(config != null);

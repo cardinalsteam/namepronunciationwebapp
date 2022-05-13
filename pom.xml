@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -18,7 +17,34 @@
 		<spring-cloud-azure.version>4.0.0</spring-cloud-azure.version>
 	</properties>
 
+	<!-- <repositories> -->
+	<repositories>
+		<repository>
+			<id>maven-cognitiveservices-speech</id>
+			<name>Microsoft Cognitive Services Speech Maven Repository</name>
+			<url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+		</repository>
+	</repositories>
+	<!-- </repositories> -->
+	<!-- <dependencies> -->
 	<dependencies>
+		<dependency>
+			<groupId>com.microsoft.cognitiveservices.speech</groupId>
+			<artifactId>client-sdk</artifactId>
+			<version>1.21.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yugabyte</groupId>
+			<artifactId>jdbc-yugabytedb</artifactId>
+			<version>42.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -27,43 +53,56 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-<!--		<dependency>
+
+	</dependencies>
+	<!-- </dependencies> -->
+
+	<!--<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+&lt;!&ndash;		<dependency>
 			<groupId>com.azure.spring</groupId>
 			<artifactId>spring-cloud-azure-starter</artifactId>
-		</dependency>-->
+		</dependency>&ndash;&gt;
 		<dependency>
 			<groupId>com.azure.spring</groupId>
 			<artifactId>spring-cloud-azure-starter-storage-blob</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-		<!--<dependency>
+		&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind &ndash;&gt;
+		&lt;!&ndash;<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.2.2</version>
-		</dependency>-->
+		</dependency>&ndash;&gt;
 
-		<!-- https://mvnrepository.com/artifact/org.jsonschema2pojo/jsonschema2pojo-gradle-plugin -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/org.jsonschema2pojo/jsonschema2pojo-gradle-plugin &ndash;&gt;
 		<dependency>
 			<groupId>org.jsonschema2pojo</groupId>
 			<artifactId>jsonschema2pojo-gradle-plugin</artifactId>
 			<version>0.4.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/com.zaxxer/HikariCP &ndash;&gt;
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
 			<version>5.0.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.yugabyte/jdbc-yugabytedb -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/com.yugabyte/jdbc-yugabytedb &ndash;&gt;
 		<dependency>
 			<groupId>com.yugabyte</groupId>
 			<artifactId>jdbc-yugabytedb</artifactId>
 			<version>42.3.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.microsoft.cognitiveservices.speech/client-jar-sdk -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/com.microsoft.cognitiveservices.speech/client-jar-sdk &ndash;&gt;
 		<dependency>
 			<groupId>com.microsoft.cognitiveservices.speech</groupId>
 			<artifactId>client-jar-sdk</artifactId>
@@ -111,6 +150,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+	</build>-->
 
 </project>
