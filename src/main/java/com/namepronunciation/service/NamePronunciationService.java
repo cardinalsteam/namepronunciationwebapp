@@ -3,10 +3,12 @@ package com.namepronunciation.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.namepronunciation.domain.Employee;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class NamePronunciationService {
     @Autowired
     private AzureTextToSpeechHelper azureTextToSpeechHelper;
@@ -17,7 +19,7 @@ public class NamePronunciationService {
         boolean namePresent = false;
         Employee empToReturn =null;
         if (null != employee) {
-
+log.trace("inside NamePronunciationService method..");
             namePresent = isNamePresent(employee);
             if(namePresent){
                 //call azure standard speech api

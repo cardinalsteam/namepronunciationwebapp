@@ -2,6 +2,7 @@ package com.namepronunciation.controller;
 
 import com.namepronunciation.domain.Employee;
 import com.namepronunciation.service.NamePronunciationService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Slf4j
 public class NamePronunciationController {
 
    @Autowired
@@ -25,7 +27,7 @@ public class NamePronunciationController {
     @GetMapping("/message")
     public String message(String blob) {
 
-
+log.debug("inside message method");
         return "This application is deployed in azure with maven build !";
     }
 
@@ -75,10 +77,16 @@ public class NamePronunciationController {
 
     public List<Employee> pronunce(@RequestBody final String employee) {
         List<Employee> employees = new ArrayList<>();
-        Employee responseObj = namePronunciationService.pronunce(employee);
-        if(null!=responseObj){
-           employees.add(responseObj);
+        try {
+            Employee responseObj = namePronunciationService.pronunce(employee);
+            if(null!=responseObj){
+                employees.add(responseObj);
+            }
+        }catch (Exception e){
+            log.debug("exception : "+e.getCause());
         }
+
+
         return employees;
 
     }

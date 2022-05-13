@@ -1,12 +1,14 @@
 package com.namepronunciation.service;
 
 import com.microsoft.cognitiveservices.speech.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 @Component
+@Slf4j
 public class AzureTextToSpeechHelper {
 
     //Using Azure text to speech service sdk.
@@ -53,10 +55,14 @@ public class AzureTextToSpeechHelper {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+            log.debug("InterruptedException: "+e.getCause());
             System.out.println("InterruptedException exception: " + e.getMessage());
         } catch (ExecutionException e) {
             e.printStackTrace();
+            log.debug("ExecutionException: "+e.getStackTrace());
             System.out.println("ExecutionException exception: " + e.getMessage());
+        }catch (Exception e){
+            log.debug("Exception occured: "+e.getStackTrace());
         }
 
 
