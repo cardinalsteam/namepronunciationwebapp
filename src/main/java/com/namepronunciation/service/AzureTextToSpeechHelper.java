@@ -22,7 +22,7 @@ public class AzureTextToSpeechHelper {
         String serviceRegion = "eastus";
         try {
             SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
-config.setSpeechSynthesisVoiceName("en-US-AriaNeural");
+            config.setSpeechSynthesisVoiceName("en-US-AriaNeural");
             SpeechSynthesizer synth = new SpeechSynthesizer(config);
 
             assert(config != null);
